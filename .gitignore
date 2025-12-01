@@ -1,0 +1,13 @@
+# Ignore Unreal Engine build files
+Binaries/
+Intermediate/
+Saved/
+# Ignore common development files
+*.sln
+*.user
+*.opensdf
+*.sdf
+*.suo
+*.xcodeproj/
+*.xcworkspace/
+*.idea/
