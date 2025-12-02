@@ -1,13 +1,112 @@
-# Ignore Unreal Engine build files
+# Unreal Engine 5 Project - Comprehensive .gitignore
+
+# ---------------------------------------------------------
+# Build and Compiled Files
+# ---------------------------------------------------------
 Binaries/
+DerivedDataCache/
 Intermediate/
 Saved/
-# Ignore common development files
+Build/
+
+# ---------------------------------------------------------
+# Platform-Specific Directories
+# ---------------------------------------------------------
+Platforms/
+
+# ---------------------------------------------------------
+# IDE and Editor Files
+# ---------------------------------------------------------
+# Visual Studio
 *.sln
-*.user
-*.opensdf
-*.sdf
 *.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+.vs/
+
+# Visual Studio Code
+.vscode/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Xcode
 *.xcodeproj/
 *.xcworkspace/
-*.idea/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+DerivedData/
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ---------------------------------------------------------
+# Old/Deprecated File Formats
+# ---------------------------------------------------------
+*.opensdf
+*.sdf
+
+# ---------------------------------------------------------
+# Crash Reports
+# ---------------------------------------------------------
+CrashReportClient/
+
+# ---------------------------------------------------------
+# Cache Files
+# ---------------------------------------------------------
+*.VC.db
+*.VC.opendb
+
+# ---------------------------------------------------------
+# Debug Files
+# ---------------------------------------------------------
+*.pdb
+
+# ---------------------------------------------------------
+# Compiled Shader Cache
+# ---------------------------------------------------------
+ShaderCompileWorker/
+
+# ---------------------------------------------------------
+# Local Content - Exclude but keep structure
+# ---------------------------------------------------------
+Content/Collections/
+Content/Developers/
+
+# ---------------------------------------------------------
+# Temporary Files
+# ---------------------------------------------------------
+*.tmp
+*.temp
+*.log
+*.log.1
+*.bak
+
+# ---------------------------------------------------------
+# Auto-generated Documentation
+# ---------------------------------------------------------
+Documentation/
+
+# ---------------------------------------------------------
+# Package Files (Optional - uncomment if not versioning)
+# ---------------------------------------------------------
+# *.uasset
+# *.umap
+
+# ---------------------------------------------------------
+# NOTE: The following should be tracked in version control
+# ---------------------------------------------------------
+# Config/ - Configuration files
+# Source/ - C++ source code
+# Content/ - Game assets (blueprints, materials, etc.)
+# *.uproject - Project file
