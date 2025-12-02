@@ -214,12 +214,23 @@ void UMobileInputWidget::UpdateJoystickPosition(const FVector2D& TouchPosition)
     FGeometry ThumbGeometry = JoystickThumb->GetCachedGeometry();
     FVector2D ThumbSize = ThumbGeometry.GetAbsoluteSize();
     
-    // Position thumb at offset from center
+    // Position thumb at offset from joystick center
     if (UCanvasPanelSlot* CanvasSlot = Cast<UCanvasPanelSlot>(JoystickThumb->Slot))
     {
-        FVector2D LocalOffset = Offset / UWidgetLayoutLibrary::GetViewportScale(this);
-        FVector2D CurrentPosition = CanvasSlot->GetPosition();
-        CanvasSlot->SetPosition(CurrentPosition + LocalOffset);
+        // Get the joystick background position to use as base
+        if (JoystickBackground)
+        {
+            FGeometry BackgroundGeometry = JoystickBackground->GetCachedGeometry();
+            FVector2D BackgroundSize = BackgroundGeometry.GetLocalSize();
+            
+            // Calculate thumb position relative to background center
+            FVector2D LocalOffset = Offset / UWidgetLayoutLibrary::GetViewportScale(this);
+            FVector2D ThumbLocalSize = ThumbSize / UWidgetLayoutLibrary::GetViewportScale(this);
+            
+            // Center the thumb on the offset position
+            FVector2D NewPosition = (BackgroundSize - ThumbLocalSize) / 2.0f + LocalOffset;
+            CanvasSlot->SetPosition(NewPosition);
+        }
     }
 
     // Calculate normalized input values
@@ -254,12 +265,19 @@ void UMobileInputWidget::ResetJoystick()
     }
 
     // Reset thumb position
-    if (JoystickThumb)
+    if (JoystickThumb && JoystickBackground)
     {
         if (UCanvasPanelSlot* CanvasSlot = Cast<UCanvasPanelSlot>(JoystickThumb->Slot))
         {
-            // Reset to center of joystick background
-            // This would need proper position calculation based on your widget layout
+            // Reset thumb to center of joystick background
+            FGeometry BackgroundGeometry = JoystickBackground->GetCachedGeometry();
+            FGeometry ThumbGeometry = JoystickThumb->GetCachedGeometry();
+            FVector2D BackgroundSize = BackgroundGeometry.GetLocalSize();
+            FVector2D ThumbSize = ThumbGeometry.GetLocalSize();
+            
+            // Center the thumb within the background
+            FVector2D CenteredPosition = (BackgroundSize - ThumbSize) / 2.0f;
+            CanvasSlot->SetPosition(CenteredPosition);
         }
     }
 

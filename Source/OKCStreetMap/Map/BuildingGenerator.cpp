@@ -229,8 +229,8 @@ void ABuildingGenerator::SpawnBuilding(const FBuildingData& Data)
     }
 
     // Calculate building dimensions from footprint
-    float MinX = MAX_FLT, MaxX = -MAX_FLT;
-    float MinY = MAX_FLT, MaxY = -MAX_FLT;
+    float MinX = TNumericLimits<float>::Max(), MaxX = TNumericLimits<float>::Lowest();
+    float MinY = TNumericLimits<float>::Max(), MaxY = TNumericLimits<float>::Lowest();
     
     for (const FVector2D& Point : Data.FootprintPoints)
     {
