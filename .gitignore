@@ -98,6 +98,11 @@ Content/Developers/
 Documentation/
 
 # ---------------------------------------------------------
+# Tool Artifacts
+# ---------------------------------------------------------
+_codeql_detected_source_root
+
+# ---------------------------------------------------------
 # Package Files (Optional - uncomment if not versioning)
 # ---------------------------------------------------------
 # *.uasset
