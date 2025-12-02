@@ -1,0 +1,50 @@
+{
+    "FileVersion": 3,
+    "EngineAssociation": "5.3",
+    "Category": "",
+    "Description": "3D street map driving game for Oklahoma City using Unreal Engine 5",
+    "Modules": [
+        {
+            "Name": "OKCStreetMap",
+            "Type": "Runtime",
+            "LoadingPhase": "Default",
+            "AdditionalDependencies": [
+                "Engine",
+                "UMG",
+                "ChaosVehicles"
+            ]
+        }
+    ],
+    "Plugins": [
+        {
+            "Name": "ChaosVehiclesPlugin",
+            "Enabled": true
+        },
+        {
+            "Name": "EnhancedInput",
+            "Enabled": true
+        },
+        {
+            "Name": "AndroidDeviceProfileSelector",
+            "Enabled": true
+        },
+        {
+            "Name": "IOSDeviceProfileSelector",
+            "Enabled": true
+        },
+        {
+            "Name": "MobilePatchingUtils",
+            "Enabled": true
+        },
+        {
+            "Name": "OnlineSubsystem",
+            "Enabled": true
+        }
+    ],
+    "TargetPlatforms": [
+        "Windows",
+        "Mac",
+        "IOS",
+        "Android"
+    ]
+}
